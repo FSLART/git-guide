@@ -1,55 +1,43 @@
 ---
 title: 07 · Your first pull request
-description: Propose a change, review it, merge it, and update your local repository.
+description: Share a branch, review it, and merge it.
 ---
 
-**Before you start:** push the `add-goals` branch from the previous lesson.
+## Open a PR
 
-## Ask to bring a change into main
+On GitHub:
 
-A **pull request** (PR) is a proposal to merge one branch into another. It gives people a place to read the diff, discuss decisions, and run automated checks before merging. A PR is a GitHub feature; `git pull` is a different operation that updates your local branch.
+1. Open **Pull requests**.
+2. Click **New pull request**.
+3. Set **base** to `main`.
+4. Set **compare** to your branch.
+5. Click **Create pull request**.
 
-On your repository’s GitHub page:
-
-1. Open **Pull requests → New pull request**.
-2. Set **base** to `main` and **compare** to `add-goals`.
-3. Read the diff and choose **Create pull request**.
-4. Use a title such as `Add learning goals` and explain the change.
-
-Try this description:
+Short description:
 
 ```text
-What changed: Added two goals to the learning journal.
-Why: To make the next learning steps clear.
-Checked: Previewed the README and reviewed the diff.
+What changed: added learning goals
+Why: make the next steps clearer
+Checked: reviewed the README and diff
 ```
 
 ## Review before merging
 
-Open **Files changed**. Look for unexpected files, private information, mistakes, and unrelated edits. In a team, request a reviewer and follow the repository’s rules. For your own practice repository, you can review and merge your own PR when allowed; you cannot approve your own PR as a reviewer.
+Check for:
 
-To revise your PR, edit locally on `add-goals`, commit, and run `git push`. The same PR updates automatically.
+- unrelated edits
+- secrets or debug code
+- mistakes in wording or commands
 
 ## Merge and sync
 
-For this exercise, choose **Create a merge commit** from GitHub’s merge options, then confirm. This keeps the branch’s commits in the history. A team may instead use squash or rebase merging; follow its convention.
-
-Back in your terminal:
+After review:
 
 ```bash
 git switch main
 git pull --ff-only
-git log --oneline --graph -5
 ```
 
-Your local README should now contain your goals. Once you have confirmed the merge, remove the local branch:
+Then merge on GitHub and delete the branch if you no longer need it.
 
-```bash
-git branch -d add-goals
-```
-
-If Git refuses, stop and check that your work was integrated. Squash merging creates a different commit, so Git may not recognize the original branch as merged. Don’t replace `-d` with `-D` without understanding what you would delete.
-
-**Try it:** check that the PR is marked **Merged** on GitHub and that `git status` is clean locally. You have completed a collaboration workflow.
-
-Source: [Creating a pull request](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-a-pull-request).
+**Try it:** merge the branch and confirm the change is on `main`.

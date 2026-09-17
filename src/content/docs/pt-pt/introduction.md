@@ -1,47 +1,44 @@
 ---
 title: 01 · O que é o Git?
-description: Percebe o que são o Git e o GitHub e onde ficam as tuas alterações.
+description: O Git guarda o histórico do teu projeto. O GitHub partilha-o.
 ---
 
-**Objetivo:** explicar o que o Git guarda e para que serve o GitHub. Ainda não precisas de instalar nada.
+O Git regista versões dos teus ficheiros.
 
-## Um histórico para o teu projeto
+## Ideia rápida
 
-Imagina teres `notas-final.txt`, `notas-final-2.txt` e `notas-mesmo-final.txt`. O Git substitui essa confusão por um histórico de versões que guardas de forma intencional. Cada registo chama-se **commit**. Escolhes o que deve incluir e escreves uma mensagem curta a explicar a alteração.
+- A pasta: diretório de trabalho
+- Git: histórico local
+- GitHub: cópia remota e espaço de colaboração
 
-Um **repositório** (ou **repo**) é um projeto cujo histórico é acompanhado pelo Git. É uma pasta normal, com uma pasta oculta chamada `.git`, onde o Git guarda a sua informação. Não alteres essa pasta manualmente.
+## Git vs GitHub
 
-## Git e GitHub
+O Git é a ferramenta. O GitHub é o site que aloja repositórios.
 
-| Git | GitHub |
-| --- | --- |
-| Uma ferramenta instalada no teu computador | Um serviço que abres no navegador |
-| Regista e compara alterações locais | Aloja repositórios na Internet |
-| Funciona sem ligação à Internet | Ajuda as pessoas a rever e partilhar trabalho |
+Usa o Git para:
 
-Podes usar Git sem GitHub. Um commit local **não** envia automaticamente o teu trabalho para a Internet. Mais à frente, vais usar `git push` para enviar commits para o GitHub.
+- guardar trabalho
+- testar uma ideia sem risco
+- rever alterações antes de partilhar
+
+Usa o GitHub para:
+
+- guardar o repositório online
+- partilhar código
+- abrir pull requests
 
 ## Três sítios a lembrar
 
-1. **Diretório de trabalho:** os ficheiros que estás a editar.
-2. **Área de preparação (staging):** as alterações que escolheste para o próximo commit.
-3. **Histórico do repositório:** os commits que já guardaste.
+1. Diretório de trabalho
+2. Área de preparação
+3. Histórico do repositório
 
-```text
-Editar ficheiros  →  git add  →  git commit
-O teu trabalho      Escolher    Guardar uma versão
+## Começa o teu projeto
+
+```bash
+mkdir my-first-repo
+cd my-first-repo
+git init
 ```
 
-Guardar um ficheiro no editor e fazer um commit são ações diferentes. O Git não regista cada tecla que carregas.
-
-## O projeto deste guia
-
-Vais criar o `my-first-repo`, um diário de aprendizagem com um ficheiro `README.md`. Markdown (`.md`) é texto simples com alguma formatação: `#` inicia um título. Basta um editor de texto.
-
-:::tip Experimenta
-Explica por palavras tuas: repositório, commit e área de preparação. Depois pergunta: «Se fizer um commit sem Internet, fica no GitHub?» Não — fica no teu computador até o enviares.
-:::
-
-**Pronto para continuar?** Já sabes o que vais criar. A seguir, instala o Git e configura a tua identidade.
-
-Leitura adicional: [introdução ao controlo de versões](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) (em inglês).
+Este comando cria um repositório Git. Já podes seguir para o próximo passo.

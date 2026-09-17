@@ -1,62 +1,92 @@
 ---
 title: 04 · Make useful commits
-description: Review changes, stage deliberately, and write clear commit messages.
+description: Review changes, then commit one clear change at a time.
 ---
 
-**Your goal:** build the everyday habit of editing, reviewing, and committing. Work inside `my-first-repo` from the previous lesson.
+## Keep each commit focused
 
-## Make one small change
+A commit should answer one simple question:
 
-Add a new section to `README.md` in your editor and save it:
+> What changed and why?
+
+Good rule: one idea, one commit, one message.
+
+## Make a small change
+
+Edit `README.md` and add:
 
 ```markdown
-## What I have learned
+## What I learned
 
 - A commit records a snapshot of my work.
 ```
 
-Inspect what changed before selecting anything:
+Review it first:
 
 ```bash
 git status
 git diff
 ```
 
-In the diff, lines starting with `+` were added and lines starting with `-` were removed. The `+++` and `---` lines identify files, not edits. Press `q` if a viewer opens.
-
-## Prepare exactly what you mean
+## Stage only the relevant files
 
 ```bash
 git add README.md
 git diff --staged
+```
+
+## Write a real message
+
+```bash
 git commit -m "Document what a commit does"
 ```
 
-Prefer specific file names while learning. `git add .` can include unrelated files or secrets you did not intend to publish.
+Strong examples:
 
-:::note Staging is a snapshot too
-If you edit the file again after `git add`, the newer edit is not automatically staged. Run `git diff` to see unstaged edits and `git diff --staged` to see what is ready to commit. Stage again if you want the new edit included.
-:::
+- `Add learning journal`
+- `Fix setup command`
+- `Update onboarding notes`
+- `Fix boot timeout on cold start`
+- `Guard motor relay during sensor fault`
 
-## Write a message your future self can use
+A good message tells the reader what changed and why it was needed.
 
-| Less useful | More useful |
-| --- | --- |
-| `stuff` | `Add learning journal` |
-| `fix` | `Correct setup command in README` |
-| `changes` | `Document what a commit does` |
+## Example with firmware code
 
-Use a short, specific summary of one logical change. If a change needs explanation, describe why in a longer commit message. A prefix such as `docs:` is optional unless your team has agreed to use it.
+Imagine a small firmware fix in a device driver:
 
-## Check your history
+```c
+// before
+if (temp > 80) {
+  heater_off();
+}
+
+// after
+if (temp > 80 && !fault_active) {
+  heater_off();
+}
+```
+
+The git command and message could be:
+
+```bash
+git add src/firmware/temperature.c
+git commit -m "Guard heater shutdown on sensor fault"
+```
+
+This is a clear commit because it says:
+
+- what changed: the heater shutdown guard
+- why: avoid shutting down during a sensor fault
+- scope: one focused firmware fix
+
+## Check the history
 
 ```bash
 git log --oneline -5
 git status
 ```
 
-You should see the new commit above your first one and a clean working tree.
+A clean status means there is nothing left to commit.
 
-**Try it:** add a second learning point to the README, review both diffs at the right stages, and save a separate commit with a descriptive message. You choose the wording.
-
-Source: [Recording changes](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository).
+**Try it:** make a second small change and save it in a separate commit.

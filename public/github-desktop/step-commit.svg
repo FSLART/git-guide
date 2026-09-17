@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" role="img" aria-label="Commit a change in GitHub Desktop">
+  <rect width="800" height="320" rx="22" fill="#0f172a"/>
+  <rect x="32" y="24" width="736" height="272" rx="18" fill="#111827" stroke="#334155"/>
+  <text x="60" y="70" font-family="Arial, sans-serif" font-size="26" fill="#e2e8f0">Changed files</text>
+  <rect x="60" y="92" width="240" height="22" rx="8" fill="#1e293b"/>
+  <text x="76" y="108" font-family="Arial, sans-serif" font-size="14" fill="#cbd5e1">README.md</text>
+  <rect x="60" y="140" width="300" height="38" rx="10" fill="#0f172a" stroke="#475569"/>
+  <text x="76" y="165" font-family="Arial, sans-serif" font-size="16" fill="#cbd5e1">Add learning goals</text>
+  <rect x="430" y="90" width="210" height="140" rx="18" fill="#022c22" stroke="#115e59"/>
+  <text x="454" y="125" font-family="Arial, sans-serif" font-size="20" fill="#a7f3d0">Summary</text>
+  <text x="454" y="160" font-family="Arial, sans-serif" font-size="14" fill="#d1fae5">one small change</text>
+  <text x="454" y="186" font-family="Arial, sans-serif" font-size="14" fill="#d1fae5">clear message</text>
+  <rect x="454" y="208" width="160" height="34" rx="8" fill="#22c55e"/>
+  <text x="488" y="230" font-family="Arial, sans-serif" font-size="16" fill="#022c22">Commit</text>
+</svg>

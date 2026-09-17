@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" role="img" aria-label="Clone repository in GitHub Desktop">
+  <rect width="800" height="320" rx="22" fill="#111827"/>
+  <rect x="24" y="24" width="752" height="272" rx="16" fill="#1f2937" stroke="#374151"/>
+  <rect x="48" y="56" width="170" height="26" rx="8" fill="#0f766e"/>
+  <text x="68" y="74" font-family="Arial, sans-serif" font-size="14" fill="#ecfeff">GitHub Desktop</text>
+  <rect x="48" y="110" width="280" height="26" rx="8" fill="#111827" stroke="#374151"/>
+  <text x="64" y="128" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">Repository name</text>
+  <rect x="48" y="152" width="240" height="26" rx="8" fill="#111827" stroke="#374151"/>
+  <text x="64" y="170" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af">Local path</text>
+  <rect x="48" y="214" width="150" height="36" rx="10" fill="#22c55e"/>
+  <text x="90" y="236" font-family="Arial, sans-serif" font-size="16" fill="#052e16">Clone</text>
+  <rect x="410" y="68" width="292" height="148" rx="18" fill="#0b1220" stroke="#334155"/>
+  <circle cx="448" cy="108" r="22" fill="#60a5fa"/>
+  <circle cx="532" cy="108" r="22" fill="#a78bfa"/>
+  <circle cx="616" cy="108" r="22" fill="#34d399"/>
+  <text x="440" y="180" font-family="Arial, sans-serif" font-size="22" fill="#e2e8f0">GitHub</text>
+  <text x="478" y="206" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">your-repo</text>
+</svg>

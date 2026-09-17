@@ -1,52 +1,84 @@
 ---
 title: 04 · Cria commits úteis
-description: Revê alterações, prepara os ficheiros certos e escreve mensagens claras.
+description: Revê as alterações e guarda uma mudança clara de cada vez.
 ---
 
-**Objetivo:** ganhar o hábito de editar, rever e guardar commits. Trabalha dentro de `my-first-repo`, criado na lição anterior.
+## Mantém cada commit focado
 
-## Faz uma pequena alteração
+Um commit deve responder a uma pergunta simples:
 
-Acrescenta esta secção ao `README.md` no teu editor e guarda o ficheiro:
+> O que mudou e porquê?
+
+Regra simples: uma ideia, um commit, uma mensagem.
+
+## Faz uma alteração pequena
+
+Edita o `README.md` e acrescenta:
 
 ```markdown
-## O que já aprendi
+## O que aprendi
 
-- Um commit regista uma versão do meu trabalho.
+- Um commit guarda uma fotografia do meu trabalho.
 ```
 
-Vê o que mudou antes de preparares as alterações:
+Revê primeiro:
 
 ```bash
 git status
 git diff
 ```
 
-Na comparação, as linhas que começam por `+` foram adicionadas e as que começam por `-` foram removidas. As linhas `+++` e `---` identificam ficheiros, não alterações. Carrega em `q` se abrir um visualizador.
-
-## Prepara apenas o que pretendes
+## Prepara apenas os ficheiros relevantes
 
 ```bash
 git add README.md
 git diff --staged
+```
+
+## Escreve uma mensagem real
+
+```bash
 git commit -m "Document what a commit does"
 ```
 
-Enquanto aprendes, prefere indicar os nomes dos ficheiros. `git add .` pode incluir ficheiros sem relação com a alteração ou dados confidenciais que não querias publicar.
+Exemplos fortes:
 
-:::note A preparação também regista um estado
-Se voltares a editar o ficheiro depois de `git add`, a nova alteração não fica automaticamente preparada. Usa `git diff` para ver as alterações por preparar e `git diff --staged` para ver as que vão entrar no commit. Executa `git add` novamente se quiseres incluir a nova edição.
-:::
+- `Add learning journal`
+- `Fix setup command`
+- `Update onboarding notes`
+- `Fix boot timeout on cold start`
+- `Guard motor relay during sensor fault`
 
-## Escreve mensagens úteis para o futuro
+Uma boa mensagem diz ao leitor o que mudou e porquê.
 
-| Menos útil | Mais útil |
-| --- | --- |
-| `coisas` | `Add learning journal` |
-| `correção` | `Correct setup command in README` |
-| `alterações` | `Document what a commit does` |
+## Exemplo com código de firmware
 
-Usa um resumo curto e específico para uma alteração com um único objetivo. Se precisares de explicar a decisão, acrescenta o motivo numa mensagem mais longa. Um prefixo como `docs:` é opcional, salvo se a equipa tiver acordado usá-lo.
+Imagina uma correção pequena num driver de um dispositivo:
+
+```c
+// antes
+if (temp > 80) {
+  heater_off();
+}
+
+// depois
+if (temp > 80 && !fault_active) {
+  heater_off();
+}
+```
+
+O comando e a mensagem poderiam ser:
+
+```bash
+git add src/firmware/temperature.c
+git commit -m "Guard heater shutdown on sensor fault"
+```
+
+Este commit é claro porque diz:
+
+- o que mudou: a proteção do desligar do aquecedor
+- porquê: evitar o desligamento durante uma falha do sensor
+- alcance: uma correção focada de firmware
 
 ## Confirma o histórico
 
@@ -55,8 +87,6 @@ git log --oneline -5
 git status
 ```
 
-Deves ver o novo commit acima do primeiro e um diretório de trabalho limpo.
+Um estado limpo significa que não há nada por guardar.
 
-**Experimenta:** acrescenta uma segunda aprendizagem ao README, revê as comparações antes e depois da preparação e guarda um commit separado com uma mensagem descritiva. Escolhe tu a mensagem.
-
-Fonte: [registar alterações](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository) (em inglês).
+**Experimenta:** faz uma segunda alteração pequena e guarda-a num commit separado.

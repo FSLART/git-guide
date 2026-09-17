@@ -29,7 +29,7 @@ export default defineConfig({
           { slug: 'introduction' }, { slug: 'installation' }, { slug: 'first-repository' },
         ] },
         { label: 'Your everyday workflow', translations: { 'pt-PT': 'O teu fluxo de trabalho' }, items: [
-          { slug: 'commits' }, { slug: 'github' }, { slug: 'branches' }, { slug: 'pull-requests' },
+          { slug: 'commits' }, { slug: 'github' }, { slug: 'github-desktop' }, { slug: 'branches' }, { slug: 'pull-requests' },
         ] },
         { label: 'Build good habits', translations: { 'pt-PT': 'Cria bons hábitos' }, items: [
           { slug: 'conflicts' }, { slug: 'undo' }, { slug: 'best-practices' }, { slug: 'cheat-sheet' },

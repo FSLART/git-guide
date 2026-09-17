@@ -1,80 +1,51 @@
 ---
 title: 08 · Resolve um conflito
-description: Pratica um conflito de integração previsível num repositório separado.
+description: Mantém o conflito simples e resolve-o com atenção.
 ---
 
-**Objetivo:** perceber os marcadores de conflito e escolher o conteúdo final. Um conflito significa que o Git precisa da tua decisão, não que perdeste o trabalho.
+## Cria um conflito de prática
 
-## Cria um espaço de prática separado
-
-A partir de `my-first-repo`, sobe para a pasta anterior e cria um novo repositório. Se `conflict-practice` já existir, escolhe outro nome.
+Usa um repositório separado para isto.
 
 ```bash
-cd ..
-mkdir conflict-practice
-cd conflict-practice
-git init -b main
+git init practice-conflict
+cd practice-conflict
+git checkout -b main
 ```
 
-Cria `plan.txt` no editor com uma linha: `Aprender Git`. Guarda e executa:
-
-```bash
-git add plan.txt
-git commit -m "Add study plan"
-git switch -c morning-plan
-```
-
-Altera a linha para `Aprender Git de manhã`, guarda e faz commit:
-
-```bash
-git add plan.txt
-git commit -m "Plan a morning session"
-git switch main
-```
-
-Em `main`, altera a mesma linha para `Aprender Git à noite`, guarda e faz commit:
-
-```bash
-git add plan.txt
-git commit -m "Plan an evening session"
-git merge morning-plan
-```
-
-Isto cria um conflito de propósito, porque os dois ramos alteraram a mesma linha de formas diferentes.
-
-## Lê e resolve
-
-Executa `git status` e abre `plan.txt`. Deves ver:
+Cria `notes.txt` com:
 
 ```text
-<<<<<<< HEAD
-Aprender Git à noite
+Status: ready
+```
+
+Faz commit. Depois cria um segundo ramo e altera a mesma linha de forma diferente nos dois ramos.
+
+## Faz o merge e corrige
+
+```bash
+git merge feature-branch
+```
+
+O Git para nos marcadores de conflito.
+
+Abre o ficheiro e remove:
+
+```text
+<<<<<<<
 =======
-Aprender Git de manhã
->>>>>>> morning-plan
+>>>>>>>
 ```
 
-A parte de cima vem do ramo atual (`main`); a de baixo vem de `morning-plan`. Decide o que o ficheiro deve dizer. Substitui o bloco inteiro, incluindo todos os marcadores, por:
-
-```text
-Aprender Git de manhã e praticar à noite
-```
-
-Guarda o ficheiro e conclui a integração:
+Depois mantém a versão final que queres.
 
 ```bash
-git add plan.txt
-git diff --staged
-git commit -m "Combine study plans"
-git status
+git add notes.txt
+git commit -m "Resolve merge conflict"
 ```
 
-O diretório de trabalho deve estar limpo. Lê o ficheiro final para confirmares que o texto faz sentido. Num projeto real, executa também os testes.
+## Regra geral
 
-## Se preferires parar
+Lê os dois lados, decide o que deve vencer e mantém o resultado claro.
 
-Enquanto a integração estiver em curso, usa `git merge --abort` para a cancelar. Começa as integrações com o diretório de trabalho limpo: o cancelamento nem sempre consegue reconstruir outras alterações sem commit. Depois de guardares o commit de integração, `--abort` já não se aplica.
-
-**Experimenta:** executa `git log --oneline --graph --all`. Observa como os dois históricos se encontram no commit de integração. Regressa ao projeto principal com `cd ../my-first-repo` antes da próxima lição.
-
-Fonte: [ramos e integrações](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) (em inglês).
+**Experimenta:** cria um conflito, corrige-o e lê o ficheiro final com atenção.

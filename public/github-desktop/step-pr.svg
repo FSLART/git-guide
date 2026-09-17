@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" role="img" aria-label="Open a pull request from GitHub Desktop">
+  <rect width="800" height="320" rx="22" fill="#0f172a"/>
+  <rect x="36" y="36" width="728" height="248" rx="18" fill="#111827" stroke="#334155"/>
+  <text x="64" y="90" font-family="Arial, sans-serif" font-size="26" fill="#e2e8f0">Branch: fix/readme-link</text>
+  <rect x="64" y="118" width="260" height="36" rx="10" fill="#1d4ed8"/>
+  <text x="118" y="142" font-family="Arial, sans-serif" font-size="18" fill="#eff6ff">Create pull request</text>
+  <rect x="400" y="118" width="300" height="96" rx="12" fill="#0b1220" stroke="#475569"/>
+  <text x="420" y="152" font-family="Arial, sans-serif" font-size="18" fill="#cbd5e1">base: main</text>
+  <text x="420" y="182" font-family="Arial, sans-serif" font-size="18" fill="#cbd5e1">compare: fix/readme-link</text>
+  <rect x="490" y="220" width="140" height="34" rx="8" fill="#8b5cf6"/>
+  <text x="526" y="242" font-family="Arial, sans-serif" font-size="16" fill="#f5f3ff">Merge</text>
+</svg>
