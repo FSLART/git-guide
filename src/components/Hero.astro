@@ -1,0 +1,35 @@
+---
+import DefaultHero from '@astrojs/starlight/components/Hero.astro';
+const { entry } = Astro.locals.starlightRoute;
+const pt = Astro.currentLocale === 'pt-pt';
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const home = `${base}${pt ? 'pt-pt/' : ''}`;
+---
+{Astro.locals.starlightRoute.id === '404' ? <DefaultHero /> : entry.data.hero && (
+  <section class="guide-hero" aria-labelledby="_top">
+    <div class="hero-copy">
+      <div class="eyebrow"><img src={`${base}git-logo.svg`} width="24" height="24" alt="Git" />{pt ? 'UM GUIA PARA QUEM ESTÁ A COMEÇAR' : 'A GUIDE FOR THE VERY BEGINNING'}</div>
+      <h1 id="_top" data-page-title>{pt ? 'Pequenos passos.' : 'Small steps.'}<br /><span>{pt ? 'Bons commits.' : 'Good commits.'}</span></h1>
+      <p class="hero-description">{pt ? 'Aprende Git com calma. Guarda o teu trabalho, experimenta ideias e colabora com confiança — um commit de cada vez.' : 'Make yourself at home with Git. Save your work, try new ideas, and collaborate with confidence — one commit at a time.'}</p>
+      <div class="hero-actions">
+        <a class="start-link" href={`${home}introduction/`}>{pt ? 'Começar a aprender' : 'Start learning'} <span aria-hidden="true">↗</span></a>
+        <a class="reference-link" href={`${home}cheat-sheet/`}>{pt ? 'Consultar os comandos' : 'Find a command'} <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="hero-note">{pt ? 'Sem experiência prévia · Exercícios práticos · Ao teu ritmo' : 'No experience needed · Hands-on exercises · Your own pace'}</p>
+    </div>
+    <div class="terminal-card" aria-label={pt ? 'Exemplo de um primeiro commit' : 'Example of a first commit'}>
+      <div class="terminal-bar"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>my-first-repo</span><span aria-hidden="true">⌘</span></div>
+      <div class="terminal-body">
+        <p class="terminal-comment"># {pt ? 'Cada história começa aqui.' : 'Every story starts somewhere.'}</p>
+        <p><span class="prompt">❯</span> git init -b main</p>
+        <p class="terminal-output">Initialized empty Git repository</p>
+        <p><span class="prompt">❯</span> git add README.md</p>
+        <p><span class="prompt">❯</span> git commit -m <span class="terminal-string">"My first step"</span></p>
+        <p class="terminal-output">[main (root-commit) a1b2c3d] My first step</p>
+        <div class="commit-track" aria-hidden="true"><i></i><b></b><i></i><b></b><i class="last"></i><span>main</span></div>
+        <p class="terminal-success"><span aria-hidden="true">✓</span> {pt ? 'Um pequeno passo. Guardado no histórico.' : 'One small step. Saved in history.'}</p>
+      </div>
+      <div class="terminal-footer">{pt ? 'O teu progresso começa com um commit.' : 'Your progress starts with a commit.'}</div>
+    </div>
+  </section>
+)}

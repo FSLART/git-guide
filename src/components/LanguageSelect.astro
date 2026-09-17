@@ -1,0 +1,25 @@
+---
+import { languageHref } from '../lib/language.mjs';
+const portuguese = Astro.currentLocale === 'pt-pt';
+const base = import.meta.env.BASE_URL;
+const assetBase = `${base.replace(/\/$/, '')}/`;
+---
+<nav class="language-switch" aria-label={portuguese ? 'Idioma do guia' : 'Guide language'}>
+  <a href={languageHref(Astro.url.pathname, 'en', base)} lang="en" hreflang="en"
+    aria-current={!portuguese ? 'page' : undefined} title="Read this page in English">
+    <img src={`${assetBase}flags/gb.svg`} alt="" width="24" height="16" />
+    <span>English</span>
+  </a>
+  <a href={languageHref(Astro.url.pathname, 'pt-pt', base)} lang="pt-PT" hreflang="pt-PT"
+    aria-current={portuguese ? 'page' : undefined} title="Ler esta página em português de Portugal">
+    <img src={`${assetBase}flags/pt.svg`} alt="" width="24" height="16" />
+    <span>Português</span>
+  </a>
+</nav>
+<style>
+  .language-switch { display: flex; gap: .2rem; align-items: center; }
+  a { display: inline-flex; gap: .4rem; align-items: center; padding: .4rem .55rem; border: 1px solid transparent; border-radius: .4rem; color: var(--sl-color-gray-2); text-decoration: none; font-size: .8rem; white-space: nowrap; }
+  a[aria-current] { background: var(--sl-color-accent-low); border-color: var(--sl-color-accent); color: var(--sl-color-white); }
+  a:hover { color: var(--sl-color-white); border-color: var(--sl-color-gray-4); }
+  img { border-radius: 2px; box-shadow: 0 0 0 1px #8884; flex-shrink: 0; }
+</style>
